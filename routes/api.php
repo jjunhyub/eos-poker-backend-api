@@ -18,3 +18,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 Route::post('/getCard', 'cardController@getCard');
 Route::get('/getLatestGame', 'GameController@getLatestGame');
+Route::get('/getGames', 'GameController@getGames');

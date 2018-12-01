@@ -10,7 +10,7 @@ class cardController extends Controller
 {
     public function getCard(Request $request){
       $key=$request->input('key');
-      Log::info($key);
+      //Log::info($key);
       $card=Card::where('id',$key)->first();
       return $card->made;
     }
