@@ -11,6 +11,9 @@ class GameController extends Controller
     $latest_game = Game::orderBy('created_at', 'desc')->first();
     return $latest_game;
   }
+  public function login(Request $request){
+    $account=$request->input('account');
+  }
   /*
   public function getGames(){
     //return how many games : 24;(12h)
