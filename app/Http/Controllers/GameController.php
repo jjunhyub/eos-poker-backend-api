@@ -13,6 +13,9 @@ class GameController extends Controller
   }
   public function login(Request $request){
     $account=$request->input('account');
+    $user= new User;
+    $user->eos_id = $account;
+    $user->save();
   }
   /*
   public function getGames(){
