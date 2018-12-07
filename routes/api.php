@@ -12,11 +12,6 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
-Route::post('/getCard', 'cardController@getCard');
-Route::post('/login', 'GameController@login');
-Route::get('/getLatestGame', 'GameController@getLatestGame');
-Route::get('/getGames', 'GameController@getGames');
+Route::post('/getCard', 'CardController@getCard');
+Route::post('/login', 'UserController@login');
+Route::get('/getGameLogs', 'GameController@getGameLogs');
