@@ -4,10 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Game extends Model
+class Entry extends Model
 {
     public $fillable = [
-        'winner',
-        'prize',
+        'gameId',
+        'userId',
+        'made',
     ];
 }
