@@ -30,12 +30,14 @@ class CreateNewGame implements ShouldQueue
      */
     public function handle()
     {
-        $latest_game = Game::orderBy('created_at', 'desc')->first();
+        $latest_game = Game::all()->last();
+        $latest_game->is_gaming = false;
+        $latest_game->save();
+
         $new_game = Game::create(['prize' => 0]);
-        //$new_game->prize = 0;
         $new_game->is_gaming = true;
         if ($latest_game) {
-          $new_game->prize = $latest_game->prize * 0.1;
+          $new_game->prize = $latest_game->prize > 1 ? $latest_game->prize * 0.1 : 0;
         }
         $new_game->save();
     }
