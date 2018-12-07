@@ -2,6 +2,8 @@
 
 namespace App\Jobs;
 
+use App\Card;
+use App\Entry;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
@@ -32,6 +34,12 @@ class CreateNewGame implements ShouldQueue
     {
         $latest_game = Game::all()->last();
         $latest_game->is_gaming = false;
+
+        $winner = Entry::where('game_id', $latest_game->id)->order_by('made', 'desc')->first();
+        if ($winner) {
+            $latest_game->winner_id = $winner->user_id;
+            $latest_game->winner_made = Card::find($winner->made)->made;
+        }
         $latest_game->save();
 
         $new_game = Game::create(['prize' => 0]);
