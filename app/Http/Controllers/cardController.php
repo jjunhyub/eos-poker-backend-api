@@ -8,7 +8,7 @@ use App\Card;
 class cardController extends Controller
 {
     public function getCard(Request $request){
-      $key=$request->input('key');
+      $key=$request->input('key_account');
       $card=Card::where('id',$key)->first();
       return $card->made;
     }
