@@ -39,7 +39,7 @@ class CreateNewGame implements ShouldQueue
         $winner = Entry::where('game_id', $latest_game->id)->orderBy('made', 'desc')->first();
         if ($winner) {
             $latest_game->winner_name = $winner->user_name;
-            $latest_game->winner_made = Card::find($winner->made)->made;
+            $latest_game->winner_made = json_decode(Card::find($winner->made)->made);
             $user = User::where('eos_id', $winner->user_name)->first();
             $user->point += $latest_game->prize;
             $user->save();
