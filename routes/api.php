@@ -15,3 +15,4 @@ use Illuminate\Http\Request;
 Route::post('/getCard', 'CardController@getCard');
 Route::post('/login', 'UserController@login');
 Route::get('/getGameLogs', 'GameController@getGameLogs');
+Route::post('/getEntry', 'EntryController@getEntry');
