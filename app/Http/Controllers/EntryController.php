@@ -18,7 +18,8 @@ class EntryController extends Controller
             return [
                 'result' => true,
                 'point' => $entry->prize,
-                'made' => Card::find($entry->made)->made
+                'made' => Card::find($entry->made)->made,
+                'made_id'=>$entry->made
             ];
         }
         return [
