@@ -47,6 +47,7 @@ class CreateNewGame implements ShouldQueue
         $latest_game->save();
 
         $new_game = Game::create([
+            'id' => $latest_game->id + 1,
             'winner_name' => '',
             'winner_made' => '[]',
             'prize' => 0,

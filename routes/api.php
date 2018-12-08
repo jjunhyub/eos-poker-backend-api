@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::post('/getCard', 'CardController@getCard');
+Route::post('/getCard', 'cardController@getCard');
 Route::post('/login', 'UserController@login');
 Route::get('/getGameLogs', 'GameController@getGameLogs');
 Route::post('/getEntry', 'EntryController@getEntry');
