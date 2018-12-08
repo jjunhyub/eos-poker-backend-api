@@ -9,7 +9,7 @@ class UserController extends Controller
 {
   public function login(Request $request){
     $eos_id = $request->input('key_account');
-    $user = User::where('name', $eos_id)->first();
+    $user = User::where('eos_id', $eos_id)->first();
     if (!$user) {
       $user = User::create([
           'eos_id' => $eos_id,

@@ -12,13 +12,6 @@ use App\Card;
 class cardController extends Controller
 {
     public function getCard(Request $request){
-<<<<<<< HEAD
-      $made=$request->input('made');
-      $gameId=$request->input('game_id');
-      $account=$request->input('user_name');
-      $card=Card::where('id',$made)->first();
-      return $card->made;
-=======
         $game_id = $request->input('game_id');
         $user_name = $request->input('user_name');
 
@@ -53,5 +46,4 @@ class cardController extends Controller
         $game->save();
         return $card->made;
     }
->>>>>>> 17ffaadc3421102fa7dda357409dc55d52a2ba5e
 }
