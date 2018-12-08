@@ -35,7 +35,7 @@ class CreateNewGame implements ShouldQueue
         $latest_game = Game::all()->last();
         $latest_game->is_gaming = false;
 
-        $winner = Entry::where('game_id', $latest_game->id)->order_by('made', 'desc')->first();
+        $winner = Entry::where('game_id', $latest_game->id)->orderBy('made', 'desc')->first();
         if ($winner) {
             $latest_game->winner_id = $winner->user_id;
             $latest_game->winner_made = Card::find($winner->made)->made;
