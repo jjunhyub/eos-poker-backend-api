@@ -7,8 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Entry extends Model
 {
     public $fillable = [
-        'gameId',
-        'userId',
+        'game_id',
+        'user_name',
         'made',
+        'prize'
     ];
 }
