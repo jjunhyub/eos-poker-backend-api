@@ -8,6 +8,6 @@ use App\Game;
 class GameController extends Controller
 {
   public function getGameLogs(){
-    return Game::orderBy('id', 'desc')->take(24)->get();
+    return Game::where('winner_name', '!=', '')->orderBy('id', 'desc')->take(24)->get();
   }
 }
